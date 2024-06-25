@@ -1,7 +1,5 @@
 package linkedlists;
 
-import com.linkedlists.Node;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 
