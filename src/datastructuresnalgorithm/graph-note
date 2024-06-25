@@ -1,0 +1,18 @@
+	A	B	C	D	E
+A	0	1	0	0	0
+B	0	0	1	0	1
+C	0	0	0	1	1
+D	0	0	0	0	0
+E	1	0	1	0	0
+
+
+Adjacency matrix: v= vertex
+--------------------------------
+Time Complexity: O(1)
+Space complexity: V2
+================================
+Adjacency List
+--------------------------------
+Time Complexity: O(V)
+Space complexity: V+E
+================================
