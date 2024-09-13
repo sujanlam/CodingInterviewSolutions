@@ -48,6 +48,7 @@ public class Reviews {
                     }
                     i++;
                 }
+//"very Great service but terrible still good"
             }
             if(positiveWordCount > negativeWordCount) {
                 sentiments.add("positive");
