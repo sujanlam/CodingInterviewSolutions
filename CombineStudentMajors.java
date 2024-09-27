@@ -3,7 +3,7 @@ package test;
 import java.util.*;
 
 public class CombineStudentMajors {
-    public static void combineMajors(String[][] enrollments) {
+    public static Map<String, Set<String>> combineMajors(String[][] enrollments) {
         Map<Integer, Set<String>> majorsMap = new HashMap<Integer, Set<String>>();
         for (String[] enrollment : enrollments) {
             int id = Integer.parseInt(enrollment[0]);
@@ -11,7 +11,6 @@ public class CombineStudentMajors {
             majorsMap.computeIfAbsent(id, k-> new HashSet<String>()).add(major);
         }
         List<Integer> idList= new ArrayList<>(majorsMap.keySet());
-        Collections.sort(idList);
         Map<String, Set<String>> cmbMajors = new LinkedHashMap<>();
 
         for (int i = 0; i < idList.size(); i++) {
@@ -24,10 +23,8 @@ public class CombineStudentMajors {
                 cmbMajors.put(keyCombo, majorsCombo);
             }
         }
-        for (Map.Entry<String, Set<String>> entry : cmbMajors.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
 
+        return cmbMajors;
     }
     public static void main(String[] args) {
         String[][] enrollments = {
@@ -36,13 +33,16 @@ public class CombineStudentMajors {
                 {"103", "Electrical Engineering"},
                 {"104", "Computer Science"},
                 {"105", "Civil Engineering"},
-                {"101", "Mechanical Engineering"},
+                {"101", "Aero Engineering"},
                 {"102", "Computer Science"},
                 {"106", "Computer Science"},
                 {"103", "Civil Engineering"},
                 {"104", "Electrical Engineering"}
         };
-        combineMajors(enrollments);
+        Map<String, Set<String>> resCombMajors = combineMajors(enrollments);
+        resCombMajors.entrySet().stream().forEach(entry -> {
+            System.out.println(entry.getKey()+" "+entry.getValue());
+        });
     }
 
 }
